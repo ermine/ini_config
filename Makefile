@@ -1,9 +1,13 @@
 OCAMLMAKEFILE = ../../OCamlMakefile
 
 SOURCES = config_parser.mly config_lexer.mll config.ml
-RESULT = config_file
+RESULT = plain_config
 
-all: ncl
+include ../../Makefile.global
+include ../Makefile.inc
+LIBINSTALL_FILES += config.cmi
+
+all: bcl ncl
 
 include $(OCAMLMAKEFILE)
 
