@@ -1,6 +1,6 @@
-description = "Plain Config library"
+description = "INI-like Config library"
 requires = ""
-version = "1"
-archive(byte) = "plain_config.cma"
-archive(native) = "plain_config.cmxa"
+version = "2"
+archive(byte) = "ini_config.cma"
+archive(native) = "ini_config.cmxa"
 
