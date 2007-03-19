@@ -30,7 +30,6 @@ let trim str =
       else
 	 let start = aux_start 0 in
 	 let last = aux_end start (len-1) in
-	    Printf.printf "trim: [%s] %d %d\n" str start last;
 	    String.sub str start last
 }
 
@@ -42,24 +41,26 @@ let ident = ['a'-'z' 'A'-'Z' '_' ':'] ['a'-'z' 'A'-'Z' '0'-'9' '.' '-' '_' ':']*
 
 rule token = parse
    | '[' (ident as ident) ']'
-	 { 
-	    print_endline ident;
-	    Section ident }
+	 { Section ident }
    | (ident as ident) space* '=' space*
-	 { 
-	    print_endline ident;
-	    let value = value [] lexbuf in
+	 { let value = value [] lexbuf in
 	      KeyValue (ident, value) }
    | eol+
-	 { 
-	    print_endline "EOL";
-	    EOL }
+	 { EOL }
    | eof
 	 { EOF }
 
 and value acc = parse
    | ([^  '#' '\n']* as str) eol+ space+ 
-	 { value (trim str :: acc) lexbuf }
+	 { let el = trim str in
+	      if el = "" then
+		 value acc lexbuf
+	      else
+		 value (el :: acc) lexbuf }
    | ([^ '#' '\n']* as str)
-	 { String.concat " " (List.rev (trim str :: acc)) }
+	 { let el = trim str in
+	      if el = "" then
+		 String.concat " " (List.rev acc)
+	      else
+		 String.concat " " (List.rev (el :: acc)) }
 
