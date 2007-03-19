@@ -24,13 +24,11 @@ config_file:
 | EOL unit EOF               { $2 }
 
 unit:
-|                            { [] }
-| section EOL unit           { $1 :: $3 }
-| section                    { [$1] }
-
-section:
-| Section EOL keyvaluelist   { $1, $3 }
+|                                    { [] }
+| Section EOL keyvaluelist unit      { ($1, $3) :: $4}
+| Section EOL keyvaluelist           { [$1, $3] }
 
 keyvaluelist:
-| KeyValue EOL keyvaluelist  { $1 :: $3 }
-| KeyValue EOL               { [$1] }
+|                                   { [] }
+| KeyValue EOL keyvaluelist         { $1 :: $3 }
+| KeyValue EOL                      { [$1] }

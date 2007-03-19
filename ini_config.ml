@@ -6,8 +6,12 @@ type ini = (string * (string * string) list) list
 
 exception IniError of int
 
-let getvalue ini section key =
+let get_value ini section key =
    List.assoc key (List.assoc section ini)
+
+let get_value_list ini section key =
+   let v = get_value ini section key in
+      Str.split (Str.regexp "[' ' '\t']*,[' ' '\t']*") v
 
 let parse file =
    let f = open_in file in
