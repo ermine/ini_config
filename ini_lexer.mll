@@ -23,7 +23,7 @@ let trim str =
 	 else
 	    i+1
       else
-	 i
+	 i+1
    in
       if len = 0 then
 	 ""
@@ -63,4 +63,3 @@ and value acc = parse
 		 String.concat " " (List.rev acc)
 	      else
 		 String.concat " " (List.rev (el :: acc)) }
-
