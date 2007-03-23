@@ -13,6 +13,11 @@ let get_value_list ini section key =
    let v = get_value ini section key in
       Str.split (Str.regexp "[' ' '\t']*,[' ' '\t']*") v
 
+let get_value_option ini section key =
+   try let v = get_value ini section key in
+      if v = "" then None else Some v
+   with Not_found -> None
+
 let parse file =
    let f = open_in file in
    let lexbuf = Lexing.from_channel f in

@@ -10,5 +10,7 @@ val get_value : ini -> string -> string -> string
 
 val get_value_list : ini -> string -> string -> string list
 
+val get_value_option : ini -> string -> string -> string option
+
 val parse : string -> ini
 
