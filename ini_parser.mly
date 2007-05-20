@@ -26,9 +26,7 @@ config_file:
 unit:
 |                                    { [] }
 | Section EOL keyvaluelist unit      { ($1, $3) :: $4}
-| Section EOL keyvaluelist           { [$1, $3] }
 
 keyvaluelist:
 |                                   { [] }
 | KeyValue EOL keyvaluelist         { $1 :: $3 }
-| KeyValue EOL                      { [$1] }
