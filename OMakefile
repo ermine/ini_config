@@ -1,0 +1,43 @@
+.PHONY: makelib testlib clean
+
+OCamlGeneratedFiles(ini_parser.ml ini_lexer.ml)
+
+GENERATED_FILES[] =
+   ini_parser.ml
+   ini_parser.mli
+   ini_lexer.ml
+   ini_lexer.mli
+
+FILES[] =
+   ini_parser
+   ini_lexer
+   ini_config
+
+LIB = ini_config
+
+.DEFAULT: $(OCamlLibrary $(LIB), $(FILES))
+
+TEST_FILES = test
+TEST = test
+
+section
+   OCAML_LIBS = ini_config
+   OCamlProgram($(TEST), $(TEST_FILES))
+
+testlib: test
+
+if $(not $(defined LIBDIR))
+   include ../../config
+   export
+
+IFILES[]=
+
+LibInstall(makelib, $(LIB), $(IFILES))
+
+#   install ini_config.mli $(LIBDIR)
+#   install ini_config.a $(LIBDIR)
+#   install ini_config.cmxa $(LIBDIR)
+
+clean:
+   $(CLEAN) $(GENERATED_FILES) $(TEST)$(EXE)
+  
