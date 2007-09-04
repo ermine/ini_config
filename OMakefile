@@ -1,4 +1,4 @@
-.PHONY: makelib testlib clean
+.PHONY: makelib testlib install clean
 
 OCamlGeneratedFiles(ini_parser.ml ini_lexer.ml)
 
@@ -34,9 +34,7 @@ IFILES[]=
 
 LibInstall(makelib, $(LIB), $(IFILES))
 
-#   install ini_config.mli $(LIBDIR)
-#   install ini_config.a $(LIBDIR)
-#   install ini_config.cmxa $(LIBDIR)
+install: makelib
 
 clean:
    $(CLEAN) $(GENERATED_FILES) $(TEST)$(EXE)
