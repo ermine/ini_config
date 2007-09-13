@@ -26,11 +26,9 @@ section
 
 testlib: test
 
-if $(not $(defined LIBDIR))
-   include ../../config
-   export
+open ../../config
 
-IFILES[]=
+IFILES[] =
 
 LibInstall(makelib, $(LIB), $(IFILES))
 
