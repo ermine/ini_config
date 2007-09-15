@@ -6,6 +6,9 @@ type ini = (string * (string * string) list) list
 
 exception IniError of int
 
+let get_section ini section =
+   List.assoc section ini
+
 let get_value ini section key =
    List.assoc key (List.assoc section ini)
 
@@ -29,7 +32,6 @@ let split str =
 	 i
    in
    let rec aux_split acc i j =
-      Printf.printf "%d %d\n" i j;
       if i+j < String.length str then
 	 if str.[i+j] = ',' then
 	    let k = rskip_ws i (j-1) in

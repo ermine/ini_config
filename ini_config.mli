@@ -6,6 +6,8 @@ type ini = (string * (string * string) list) list
 
 exception IniError of int
 
+val get_section : ini -> string -> (string * string) list
+
 val get_value : ini -> string -> string -> string
 
 val get_value_list : ini -> string -> string -> string list
