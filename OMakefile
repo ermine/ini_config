@@ -29,8 +29,11 @@ testlib: test
 open ../../config
 
 IFILES[] =
+   ini_config
 
-LibInstall(makelib, $(LIB), $(IFILES))
+ALIBS[] =
+
+LibInstall(makelib, $(LIB), $(IFILES), $(ALIBS))
 
 install: makelib
 
