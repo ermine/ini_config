@@ -1,5 +1,5 @@
 (*
- * (c) 2005-2007 Anastasia Gornostaeva. <ermine@ermine.pp.ru>
+ * (c) 2005-2008 Anastasia Gornostaeva. <ermine@ermine.pp.ru>
  *)
 
 type ini = (string * (string * string) list) list
@@ -12,7 +12,7 @@ let get_section ini section =
 let get_value ini section key =
    List.assoc key (List.assoc section ini)
 
-let split str =
+let split str (sep:char) =
    let rec rskip_ws i j =
       if j >= 0 then
 	 if str.[i+j] = ' ' || str.[j] = '\t' then
@@ -33,7 +33,7 @@ let split str =
    in
    let rec aux_split acc i j =
       if i+j < String.length str then
-	 if str.[i+j] = ',' then
+	 if str.[i+j] = sep then
 	    let k = rskip_ws i (j-1) in
 	    let piece = String.sub str i (k+1) in
 	    let newi = lskip_ws (i+j+1) in
@@ -41,18 +41,26 @@ let split str =
 	 else
 	    aux_split acc i (j+1)
       else
-	 List.rev acc
+	 let piece = String.sub str i j in
+	    List.rev (piece :: acc)
    in
       aux_split [] 0 0
 
-let get_value_list ini section key =
+let get_value_list ?(sep=',') ini section key =
    let v = get_value ini section key in
-      split v
+      split v sep
 
 let get_value_option ini section key =
    try let v = get_value ini section key in
       if v = "" then None else Some v
    with Not_found -> None
+
+let get_value_boolean ini section key =
+   let v = get_value ini section key in
+      match String.lowercase v with
+	 | "true" | "yes" | "1" -> true
+	 | "false" | "no" | "0"  -> false
+	 | _ -> false
 
 let parse file =
    let f = open_in file in
