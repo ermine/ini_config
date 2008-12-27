@@ -1,5 +1,4 @@
 description = "INI-like Config library"
-requires = "str"
 version = "2"
 archive(byte) = "ini_config.cma"
 archive(native) = "ini_config.cmxa"
