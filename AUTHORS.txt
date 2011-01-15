@@ -1,0 +1,5 @@
+(* OASIS_START *)
+(* DO NOT EDIT (digest: eb646de41ba8992d6f3329ca8c7e531e) *)
+Authors of ini-config
+Anastasia Gornostaeva
+(* OASIS_STOP *)

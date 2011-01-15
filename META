@@ -1,0 +1,9 @@
+# OASIS_START
+# DO NOT EDIT (digest: a6d1b508bd4758a4df47b056b68ebc51)
+version = "0.1"
+description = "INI config"
+archive(byte) = "ini_config.cma"
+archive(native) = "ini_config.cmxa"
+exists_if = "ini_config.cma"
+# OASIS_STOP
+

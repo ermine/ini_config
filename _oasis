@@ -1,0 +1,26 @@
+OASISFormat: 0.2
+Name:        ini-config
+Version:     0.1
+Synopsis:    INI config
+Authors:     Anastasia Gornostaeva
+License:     BSD3
+LicenseFile: LICENCE
+Plugins:     DevFiles (0.2), META (0.2), StdFiles (0.2)
+BuildTools:  ocamlbuild
+
+Library ini_config
+  Path:       .
+  Modules:    Ini_lexer, Ini_parser, Ini_config
+
+Executable test
+  Install: false
+  Path: tests/
+  Builddepends: ini_config
+  CompiledObject: best
+  MainIs: test.ml
+
+SourceRepository head
+  Type: git
+  Location: git://github.com/ermine/ini_config.git
+#  Browser:
+  
