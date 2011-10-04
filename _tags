@@ -1,7 +1,7 @@
 # OASIS_START
-# DO NOT EDIT (digest: 70ee19008887e7431165620bba7471a6)
-# Library ini_config
+# DO NOT EDIT (digest: 34e87dd7eaa2a25ac0dd8ad4968fdf03)
+# Library erm_ini_config
 # Executable test
-<tests/test.{native,byte}>: use_ini_config
-<tests/*.ml{,i}>: use_ini_config
+<tests/test.{native,byte}>: use_erm_ini_config
+<tests/*.ml{,i}>: use_erm_ini_config
 # OASIS_STOP

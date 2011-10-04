@@ -1,5 +1,5 @@
 OASISFormat: 0.2
-Name:        ini-config
+Name:        erm_ini-config
 Version:     0.1
 Synopsis:    INI config
 Authors:     Anastasia Gornostaeva
@@ -8,14 +8,14 @@ LicenseFile: LICENCE
 Plugins:     DevFiles (0.2), META (0.2), StdFiles (0.2)
 BuildTools:  ocamlbuild
 
-Library ini_config
+Library erm_ini_config
   Path:       .
   Modules:    Ini_lexer, Ini_parser, Ini_config
 
 Executable test
   Install: false
   Path: tests/
-  Builddepends: ini_config
+  Builddepends: erm_ini_config
   CompiledObject: best
   MainIs: test.ml
 

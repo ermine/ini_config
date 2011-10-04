@@ -1,6 +1,6 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: c8c1ea9b6489fb9cbbda0364d412a415) *)
-This is the INSTALL file for the ini-config distribution.
+(* DO NOT EDIT (digest: 137345fe50ac9f283f7fba24ebb37518) *)
+This is the INSTALL file for the erm_ini-config distribution.
 
 This package uses OASIS to generate its build system. See section OASIS for
 full information. 

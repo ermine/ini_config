@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: eb646de41ba8992d6f3329ca8c7e531e) *)
-Authors of ini-config
+(* DO NOT EDIT (digest: 25208c4b29b3bfbbd7291e3b8f4b6e99) *)
+Authors of erm_ini-config
 Anastasia Gornostaeva
 (* OASIS_STOP *)
