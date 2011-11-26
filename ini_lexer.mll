@@ -1,6 +1,6 @@
 {
 (*
- * (c) 2005-2007 Anastasia Gornostaeva. <ermine@ermine.pp.ru>
+ * (c) 2005-2007 Anastasia Gornostaeva
  *)
 
 open Ini_parser
