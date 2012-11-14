@@ -1,6 +1,20 @@
 # OASIS_START
-# DO NOT EDIT (digest: 34e87dd7eaa2a25ac0dd8ad4968fdf03)
+# DO NOT EDIT (digest: 5f3cdcc66646c8989c9f8e61a3ec4fa8)
+# Ignore VCS directories, you can use the same kind of rule outside 
+# OASIS_START/STOP if you want to exclude directories that contains 
+# useless stuff for the build process
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
 # Library erm_ini_config
+"erm_ini_config.cmxs": use_erm_ini_config
 # Executable test
 <tests/test.{native,byte}>: use_erm_ini_config
 <tests/*.ml{,i}>: use_erm_ini_config

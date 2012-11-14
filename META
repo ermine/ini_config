@@ -1,9 +1,11 @@
 # OASIS_START
-# DO NOT EDIT (digest: ad14c164232ac3d95df65268fe76aa13)
+# DO NOT EDIT (digest: 84b38c0936ad7632cc9d8e3061842825)
 version = "0.1"
 description = "INI config"
 archive(byte) = "erm_ini_config.cma"
+archive(byte, plugin) = "erm_ini_config.cma"
 archive(native) = "erm_ini_config.cmxa"
+archive(native, plugin) = "erm_ini_config.cmxs"
 exists_if = "erm_ini_config.cma"
 # OASIS_STOP
 
